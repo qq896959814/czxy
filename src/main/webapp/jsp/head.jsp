@@ -2,6 +2,27 @@
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!-- 网页头信息，供其他页面复用 -->
+
+<html>
+<head>
+    <title>title</title>
+    <script>
+        $(function () {
+            var url = "${pageContext.request.contextPath}/IndexServlet";
+            var param = {
+                "method":"getCategory"
+            };
+            var dataType = "json";
+            $.post(url,param,function (data) {
+                $(data).each(function () {
+                    var thisLi = "<li><a href=''>"+this.cname+"</a></li>"
+                    $("#avbar-nav").append(thisLi)
+                });
+            },dataType)
+        })
+    </script>
+</head>
+<body>
 <div class="container-fluid">
     <!--
         描述：菜单栏
@@ -55,12 +76,15 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="${pageContext.request.contextPath}/jsp/product_list.jsp">手机数码<span
-                                class="sr-only">(current)</span></a></li>
-                        <li><a href="#">电脑办公</a></li>
-                        <li><a href="#">电脑办公</a></li>
-                        <li><a href="#">电脑办公</a></li>
+                    <ul class="nav navbar-nav" id="avbar-nav">
+                        <%--<li class="active"><a href="${pageContext.request.contextPath}/jsp/product_list.jsp">手机数码<span--%>
+                        <%--class="sr-only">(current)</span></a></li>--%>
+                        <%--<li><a href="#">电脑办公</a></li>--%>
+                        <%--<li><a href="#">电脑办公</a></li>--%>
+                        <%--<li><a href="#">电脑办公</a></li>--%>
+                        <%--<c:forEach items="${categories}" var="cate">--%>
+                            <%--<li><a href="#">${cate.cname}</a></li>--%>
+                        <%--</c:forEach>--%>
                     </ul>
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group">
@@ -75,4 +99,6 @@
             <!-- /.container-fluid -->
         </nav>
     </div>
-    
+</div>
+</body>
+</html>

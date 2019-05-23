@@ -47,7 +47,9 @@ public class UserServlet extends BaseServlet {
     }
 
     public String logout(){
-        return "";
+        getSession().removeAttribute("loginUser");
+        getSession().invalidate();
+        return "redirect:/jsp/index.jsp";
     }
 
 
