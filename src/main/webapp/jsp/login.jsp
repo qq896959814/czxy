@@ -60,13 +60,13 @@
                     <div class="form-group">
                         <label for="username" class="col-sm-2 control-label">用户名</label>
                         <div class="col-sm-6">
-                            <input type="text" name="username" class="form-control" id="username" placeholder="请输入用户名">
+                            <input type="text" name="username" class="form-control" value="${cookie.username.value}" id="username" placeholder="请输入用户名">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
                         <div class="col-sm-6">
-                            <input type="password" name="password" class="form-control" id="inputPassword3"
+                            <input type="password" name="password" class="form-control" value="${cookie.password.value}" id="inputPassword3"
                                    placeholder="请输入密码">
                         </div>
                     </div>

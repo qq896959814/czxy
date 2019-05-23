@@ -22,17 +22,24 @@ public class UserServlet extends BaseServlet {
 
     public String login() throws IOException {
         HttpServletRequest request = getRequest();
+        HttpServletResponse response = getResponse();
         String remeberMe = request.getParameter("remeberMe");
         String autoLogin = request.getParameter("autoLogin");
         User user = toBean(User.class);
         User login = us.login(user);
         if (login != null){
             getSession().setAttribute("loginUser",login);
+            Cookie username = new Cookie("username", login.getUsername());
+            Cookie password = new Cookie("password", login.getPassword());
             if (remeberMe != null && remeberMe!=""){
-                Cookie username = new Cookie("username", login.getUsername());
-                Cookie password = new Cookie("password", login.getPassword());
-                
+                username.setMaxAge(24*60*60);
+                password.setMaxAge(24*60*60);
+            }else {
+                username.setMaxAge(0);
+                password.setMaxAge(0);
             }
+            response.addCookie(username);
+            response.addCookie(password);
             return "redirect:/index.jsp";
         }
         getSession().setAttribute("msg","账号或密码错误");
