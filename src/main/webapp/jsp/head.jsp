@@ -15,7 +15,7 @@
             var dataType = "json";
             $.post(url,param,function (data) {
                 $(data).each(function () {
-                    var thisLi = "<li><a href=''>"+this.cname+"</a></li>"
+                    var thisLi = "<li><a href='${pageContext.request.contextPath}/ProductServlet?method=findProByCid&cid="+this.cid+"'>"+this.cname+"<span class='sr-only'>(current)</span></a></li>"
                     $("#avbar-nav").append(thisLi)
                 });
             },dataType)

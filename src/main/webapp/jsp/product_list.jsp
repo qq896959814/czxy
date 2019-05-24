@@ -12,7 +12,11 @@
 		<script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
 		<!-- 引入自定义css文件 style.css -->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css"/>
-
+		<link rel="stylesheet" type="text/css" href="css/themes/default/easyui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/themes/icon.css"/>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
 		<style>
 			body {
 				margin-top: 20px;
@@ -24,6 +28,14 @@
 				height: 300px;
 			}
 		</style>
+		<script type="text/javascript">
+			$(function () {
+				$("#paginationId").pagination({
+					total:'${pageInfo.total}',//总记录数
+					page
+				});
+			})
+		</script>
 	</head>
 
 	<body>
@@ -38,8 +50,18 @@
 					<li><a href="#">首页</a></li>
 				</ol>
 			</div>
+			<c:forEach items="${pageInfo.list}" var="thisPro">
+				<div class="col-md-2">
+					<!—以下的a标签路径与index.jsp中热门商品的a标签路径是一样的，均是访问商品详细信息-->
+					<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductById&pid=${thisPro.pid}">
+						<img src="${pageContext.request.contextPath}/${thisPro.pimage}" width="170" height="170" style="display: inline-block;">
+					</a>
+					<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductById&pid=${thisPro.pid}" style='color:green'>${thisPro.pname}</a></p>
+					<p><font color="#FF0000">商城价：&yen;${thisPro.shop_price}</font></p>
+				</div>
+			</c:forEach>
 
-			<div class="col-md-2">
+			<%--<div class="col-md-2">
 				<a href="${pageContext.request.contextPath}/jsp/product_info.jsp">
 					<img src="${pageContext.request.contextPath}/products/1/cs10001.jpg" width="170" height="170" style="display: inline-block;">
 				</a>
@@ -127,13 +149,13 @@
 				</a>
 				<p><a href="${pageContext.request.contextPath}/jsp/product_info.jsp" style='color:green'>土豆</a></p>
 				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
+			</div>--%>
 
 		</div>
 
 		<!--分页 -->
 		<div style="width:380px;margin:0 auto;margin-top:50px;">
-			<ul class="pagination" style="text-align:center; margin-top:10px;">
+			<%--<ul class="pagination" style="text-align:center; margin-top:10px;">
 				<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 				<li class="active"><a href="#">1</a></li>
 				<li><a href="#">2</a></li>
@@ -149,7 +171,10 @@
 						<span aria-hidden="true">&raquo;</span>
 					</a>
 				</li>
-			</ul>
+			</ul>--%>
+			<div class="easyui-panel">
+				<div id="paginationId" style="font-size: 14px;margin: 0;display: block"></div>
+			</div>
 		</div>
 		<!-- 分页结束=======================        -->
 

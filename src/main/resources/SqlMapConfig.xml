@@ -5,7 +5,13 @@
 <configuration>
 	<!-- 外部文件引入 -->
 	<properties resource="db.properties"></properties>
-	
+
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<property name="dialect" value="mysql" />
+			<property name="rowBoundsWithCount" value="true" />
+		</plugin>
+	</plugins>
 	<!-- 配置环境，连接需要的基本参数 -->
 	<environments default="development">
 		<environment id="development">
