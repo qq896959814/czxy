@@ -29,12 +29,22 @@
 			}
 		</style>
 		<script type="text/javascript">
-			$(function () {
+			$(function(){
 				$("#paginationId").pagination({
-					total:'${pageInfo.total}',//总记录数
-					page
+					total:'${pageInfo.total}',		//总记录数
+					pageSize:'${pageInfo.pageSize}',		//每页显示个数
+					pageNumber:'${pageInfo.pageNum}',		//当前页
+					layout:['first','prev','sep','links',
+						'sep','next','last','sep','manual'],//布局
+					beforePageText:'当前第',					//显示跳转文本框，enter键触发
+					afterPageText:'页，共${pageInfo.pages}页',
+					displayMsg:'当前显示${pageInfo.startRow}到${pageInfo.endRow}条,共${pageInfo.size}条记录', //显示记录信息
+					onSelectPage:function(pageNumber, pageSize){      //页面改变是触发
+						location.href = "${pageContext.request.contextPath}/ProductServlet?method=findProByCid&cid=${param.cid}&pageNumber=" + pageNumber;
+					}
 				});
-			})
+			});
+
 		</script>
 	</head>
 

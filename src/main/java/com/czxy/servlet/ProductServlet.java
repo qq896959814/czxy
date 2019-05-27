@@ -5,10 +5,6 @@ import com.czxy.domain.Product;
 import com.czxy.service.ProductService;
 import com.github.pagehelper.PageInfo;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class ProductServlet extends BaseServlet {
@@ -35,4 +31,5 @@ public class ProductServlet extends BaseServlet {
         PageInfo<Product> pageInfo = productService.findPageByCid(cid,pageNum,pageSize);
         return "forward:/jsp/product_list.jsp";
     }
+
 }
