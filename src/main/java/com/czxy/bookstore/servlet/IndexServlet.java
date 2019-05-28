@@ -5,15 +5,9 @@ import com.czxy.bookstore.domain.Category;
 import com.czxy.bookstore.domain.Product;
 import com.czxy.bookstore.service.CategoryService;
 import com.czxy.bookstore.service.ProductService;
-import com.czxy.bookstore.service.UserService;
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import net.sf.json.JSONArray;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -85,6 +79,6 @@ public class IndexServlet extends BaseServlet {
         //将所有热门商品放到request中
         getRequest().setAttribute("pageInfo",pageInfo);
         //请求转发到jsp/index.jsp
-        return "forward:jsp/index.jsp";
+        return "forward:/jsp/index.jsp";
     }
 }

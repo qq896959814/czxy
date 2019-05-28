@@ -28,7 +28,7 @@
 	</environments>
 	
 	<mappers>
-		<package name="com.czxy.dao"/>
+		<package name="com.czxy.bookstore.dao"/>
 	</mappers>
 	
 </configuration>
