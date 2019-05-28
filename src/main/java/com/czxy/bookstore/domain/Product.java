@@ -4,9 +4,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-/**
- * Created by 刘正风 on 2019/5/23.
- */
+
 @Table(name="product")
 public class Product {
     //

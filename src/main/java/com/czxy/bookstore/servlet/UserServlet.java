@@ -8,9 +8,7 @@ import javax.servlet.http.Cookie;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by 刘正风 on 2019/5/21.
- */
+
 public class UserServlet extends BaseServlet {
 
     //创建用户serivce，为servlet提供功能操作

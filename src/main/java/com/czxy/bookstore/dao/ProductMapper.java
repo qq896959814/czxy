@@ -7,9 +7,7 @@ import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
-/**
- * Created by 刘正风 on 2019/5/23.
- */
+
 public interface ProductMapper extends Mapper<Product>{
 
     @Select("select * from product where is_hot = 1")

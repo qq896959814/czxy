@@ -4,9 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Created by 刘正风 on 2019/5/23.
- */
+
 @Table(name="category")
 public class Category {
 

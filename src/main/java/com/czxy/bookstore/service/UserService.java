@@ -3,14 +3,11 @@ package com.czxy.bookstore.service;
 import com.czxy.bookstore.dao.UserMapper;
 import com.czxy.bookstore.domain.User;
 import com.czxy.bookstore.utils.MybatisUtils;
-import tk.mybatis.mapper.entity.Example;
 
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by 刘正风 on 2019/5/21.
- */
+
 public class UserService {
     public List<User> findAll() throws IOException {
 

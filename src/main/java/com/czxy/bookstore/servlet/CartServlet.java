@@ -5,16 +5,9 @@ import com.czxy.bookstore.domain.Cart;
 import com.czxy.bookstore.domain.Product;
 import com.czxy.bookstore.service.ProductService;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by 刘正风 on 2019/5/27.
- * 购物车相关的servlet
- */
+
 public class CartServlet extends BaseServlet {
 
     private ProductService productService = new ProductService();

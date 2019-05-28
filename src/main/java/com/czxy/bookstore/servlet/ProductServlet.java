@@ -7,16 +7,9 @@ import com.czxy.bookstore.service.CategoryService;
 import com.czxy.bookstore.service.ProductService;
 import com.github.pagehelper.PageInfo;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by 刘正风 on 2019/5/27.
- * 商品相关的servlet
- */
+
 public class ProductServlet extends BaseServlet {
 
     private ProductService productService = new ProductService();

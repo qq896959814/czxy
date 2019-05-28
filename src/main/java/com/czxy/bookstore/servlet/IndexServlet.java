@@ -11,10 +11,7 @@ import net.sf.json.JSONArray;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by 刘正风 on 2019/5/23.
- * 用于读取首页分类信息的servlet
- */
+
 public class IndexServlet extends BaseServlet {
 
     //创建分类serivce，为servlet提供分类操作

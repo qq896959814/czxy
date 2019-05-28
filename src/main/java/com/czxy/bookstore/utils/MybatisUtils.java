@@ -12,17 +12,7 @@ import tk.mybatis.mapper.mapperhelper.MapperHelper;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Created by 刘正风 on 2019/4/25.
- * mybatis工具类V3
- * <p>
- * V2存在安全问题
- * 当多个线程访问同一个session时会出现安全问题
- * <p>
- * ThreadLocal：线程本地  相当于  一个map集合
- * 相当于：
- * key-当前线程          value-当前线程的session
- */
+
 public class MybatisUtils {
 
     //成员位置定义静态的  session工厂与ThreadLocal
@@ -50,13 +40,13 @@ public class MybatisUtils {
      *
      * @return 当前线程的sqlsession
      */
-    private static  SqlSession openSession() {
+    private static SqlSession openSession() {
 
         //从ThreadLocal中获取session
         SqlSession session = threadLocal.get();
 
         //判断如果没有session，获取session
-        if(session==null) {
+        if (session == null) {
             //使用工厂创建session对象
             session = factory.openSession();
             //创建一个MapperHelper

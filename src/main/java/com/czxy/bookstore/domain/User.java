@@ -5,9 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-/**
- * Created by 刘正风 on 2019/5/21.
- */
+
 @Table(name="user")
 public class User {
 
