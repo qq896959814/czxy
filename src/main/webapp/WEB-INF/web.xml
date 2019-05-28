@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         id="WebApp_ID" version="2.5">
-    <display-name>bookstore</display-name>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
     <servlet>
         <servlet-name>UserServlet</servlet-name>
-        <servlet-class>com.czxy.servlet.UserServlet</servlet-class>
+        <servlet-class>com.czxy.bookstore.servlet.UserServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>com.czxy.servlet.IndexServlet</servlet-class>
+        <servlet-class>com.czxy.bookstore.servlet.IndexServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProductServlet</servlet-name>
-        <servlet-class>com.czxy.servlet.ProductServlet</servlet-class>
+        <servlet-class>com.czxy.bookstore.servlet.ProductServlet</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>/IndexServlet</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>com.czxy.bookstore.servlet.CartServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/UserServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/IndexServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ProductServlet</servlet-name>
         <url-pattern>/ProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/CartServlet</url-pattern>
     </servlet-mapping>
 </web-app>

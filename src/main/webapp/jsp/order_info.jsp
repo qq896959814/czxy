@@ -28,9 +28,13 @@
 	<body>
 
 	
-					<!-- 引入网页头 -->
-		<%@ include file="/jsp/head.jsp" %>
-
+			<!--
+            	描述：菜单栏
+            -->
+			<div class="container-fluid">
+				<%--加入头部信息--%>
+				<%@ include file="/jsp/head.jsp" %>
+			</div>
 
 		<div class="container">
 			<div class="row">

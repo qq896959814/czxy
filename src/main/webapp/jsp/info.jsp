@@ -17,6 +17,9 @@
 	<body>
 		<div class="container">
 
+			<%--包含导航条 
+			<%@include file="/jsp/header.jsp" %>--%>
+
 			<div class="container">
 				<div class="main_con">
 
