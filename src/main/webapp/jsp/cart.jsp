@@ -64,6 +64,9 @@
 								<th>小计</th>
 								<th>操作</th>
 							</tr>
+                            <c:if test="${empty cart||empty cart.cartItems}">
+                                <tr class="active"><td colspan="6">您暂时没有购买任何商品</td></tr>
+                            </c:if>
 							<%--${cart}:购物车--%>
 							<c:forEach items="${cart.cartItems}" var="thisCartItem">
 							<tr class="active">
@@ -101,7 +104,7 @@
 				</div>
 				<div style="text-align:right;margin-top:10px;margin-bottom:10px;">
 					<a href="${pageContext.request.contextPath}/CartServlet?method=clearCartItem" id="clear" class="clear">清空购物车</a>
-					<a href="${pageContext.request.contextPath}/jsp/order_info.jsp">
+					<a href="${pageContext.request.contextPath}/OrderServlet?method=saveOrder">
 						<%--提交表单 --%>
 						<input type="submit" width="100" value="提交订单" name="submit" border="0" style="background: url('${pageContext.request.contextPath}/img/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 						height:35px;width:100px;color:white;">

@@ -60,7 +60,8 @@
                 <c:if test="${loginUser.sex == '女'}">女士</c:if>
                 <%--我的订单,必须是登陆用户才有--%>
                 <li><a href="${pageContext.request.contextPath}/UserServlet?method=logout">退出</a></li>
-                <li><a href="${pageContext.request.contextPath}/jsp/order_list.jsp">我的订单</a></li>
+                <li><a href="${pageContext.request.contextPath}/OrderServlet?method=findOrderByUid">我的订单</a></li>
+                <li><a href="${pageContext.request.contextPath}/OrderServlet?method=findOrderPageByUid">我的分页订单</a></li>
             </c:if>
             <%--登陆与注册必须没有登陆才能看到--%>
             <c:if test="${empty loginUser}">

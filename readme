@@ -1,0 +1,34 @@
+1.商品详情流程
+    index.jsp#热门商品?pid  /  product_list.jsp#单个商品?pid
+    ↓
+    ProductServlet#findProductById  >>  productService#findProductById/categoryService#getCategoryById >>  dao#selectByPrimaryKey
+    request放product和category
+    ↓
+    jsp/product_info.jsp获取商品与分类
+
+2.单个分类下的分页商品展示流程
+    head.jsp#ajax#li#a标签   /  product_info商品详情页面#上边的小的二级导航栏
+    ↓
+    //分页查询时，pageSize认为固定为12的。真正开发时不会固定。第一访问，默认访问第1页
+    //service的返回值类型为pageInfo
+    ProductServlet#findProByCid?pageNumber=1&cid >>productService#findProByCid(当前页，每页条数，分类id) >> dao#selectByCid
+    request放pageInfo
+    ↓
+    jsp/product_list获取pageInfo中的当前页信息放到两个位置：
+    位置1：本页中商品信息展示
+    位置2：本页中分页条属性设置中
+
+    3.订单相关操作
+        3.1页面跳转
+            生成订单：cart.jsp → order_info.jsp 将购物车生成一个订单，展示订单
+            我的订单：head.jsp(登陆状态) → order_list.jsp  订单列表展示
+        3.2订单相关的表及关系
+            用户表user：一个用户对应多个订单                                      → User类中有一个集合的Orders
+            订单表orders：一个订单对应一个用户，一个订单对应多个订单项            →  Order类中有一个用户User，Orders类中有一个集合的OrderItem
+            订单项表orderitem：一个订单项对应一个商品，一个订单项对应一个订单     → OrderItem类中有一个订单Orders，有一个商品product
+            商品表product：一个商品对应多个订单项                                 →  一个商品User中有一个集合的OrderItem
+        3.3购物车与订单的关系
+             一个购物车会转换成一个订单。购物车中的购物车项转成订单中的订单项
+        3.4订单相关的操作
+            生成订单：将购物车转成一个订单
+            我的订单：将当前

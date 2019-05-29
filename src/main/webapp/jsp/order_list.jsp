@@ -42,9 +42,11 @@
 				<div style="margin:0 auto; margin-top:10px;width:950px;">
 					<strong>我的订单</strong>
 					<table class="table table-bordered">
-						<tbody>
+						<!-- 一个订单 -->
+						<c:forEach items="${list }" var="thisOrder">
+							<tbody>
 							<tr class="success">
-								<th colspan="5">订单编号:9005 </th>
+								<th colspan="5">订单编号:${thisOrder.oid }&nbsp;&nbsp;&nbsp;状态：${thisOrder.state}</th>
 							</tr>
 							<tr class="warning">
 								<th>图片</th>
@@ -53,26 +55,34 @@
 								<th>数量</th>
 								<th>小计</th>
 							</tr>
-							<tr class="active">
-								<td width="60" width="40%">
-									<input type="hidden" name="id" value="22">
-									<img src="${pageContext.request.contextPath}/products/2/dadonggua.jpg" width="70" height="60">
-								</td>
-								<td width="30%">
-									<a target="_blank"> 有机蔬菜      大冬瓜...</a>
-								</td>
-								<td width="20%">
-									￥298.00
-								</td>
-								<td width="10%">
-									5
-								</td>
-								<td width="15%">
-									<span class="subtotal">￥596.00</span>
-								</td>
-							</tr>
-						</tbody>
-						<tbody>
+							<!-- 一个订单项开始 -->
+							<c:forEach items="${thisOrder.orderItemList }" var="orderItem">
+								<tr class="active">
+									<td width="60" width="40%">
+										<input type="hidden" name="id" value="22">
+										<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductById&pid=${orderItem.product.pid}">
+											<img src="${pageContext.request.contextPath}/${orderItem.product.pimage}" width="70" height="60">
+										</a>
+									</td>
+									<td width="30%">
+										<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductById&pid=${orderItem.product.pid}"> ${orderItem.product.pname}</a>
+									</td>
+									<td width="20%">
+										￥${orderItem.product.shop_price}
+									</td>
+									<td width="10%">
+											${orderItem.count}
+									</td>
+									<td width="15%">
+										<span class="subtotal">￥${orderItem.subtotal}</span>
+									</td>
+								</tr>
+							</c:forEach>
+							<!-- 一个订单项结束 -->
+							</tbody>
+						</c:forEach>
+						<!-- 一个订单结束 -->
+						<%--<tbody>
 							<tr class="success">
 								<th colspan="5">订单编号:9004 </th>
 							</tr>
@@ -161,7 +171,7 @@
 									<span class="subtotal">￥596.00</span>
 								</td>
 							</tr>
-						</tbody>
+						</tbody>--%>
 					</table>
 				</div>
 			</div>
