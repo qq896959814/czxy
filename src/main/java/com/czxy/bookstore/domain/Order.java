@@ -1,6 +1,7 @@
 package com.czxy.bookstore.domain;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.List;
 public class Order {
     @Id
     @Column(name = "oid")
+    @GeneratedValue(generator = "UUID")
     private String oid;
     private Date ordertime;
     @Column(name="total_price")

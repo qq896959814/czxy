@@ -5,7 +5,7 @@ import cn.itcast.servlet.BaseServlet;
 import com.czxy.bookstore.domain.*;
 import com.czxy.bookstore.service.OrderService;
 import com.github.pagehelper.PageInfo;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.util.*;

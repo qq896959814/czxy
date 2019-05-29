@@ -53,7 +53,7 @@
 								<th>数量</th>
 								<th>小计</th>
 							</tr>
-							<tr class="active">
+							<%--<tr class="active">
 								<td width="60" width="40%">
 									<input type="hidden" name="id" value="22">
 									<img src="${pageContext.request.contextPath}/products/2/dadonggua.jpg" width="70" height="60">
@@ -70,13 +70,35 @@
 								<td width="15%">
 									<span class="subtotal">￥596.00</span>
 								</td>
-							</tr>
+							</tr>--%>
+							<c:forEach items="${order.orderItemList}" var="thisOrderItem">
+								<tr class="active">
+									<td width="60" width="40%">
+										<input type="hidden" name="id" value="22">
+										<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductById&pid=${thisOrderItem.product.pid}">
+											<img src="${pageContext.request.contextPath}/${thisOrderItem.product.pimage}" width="70" height="60">
+										</a>
+									</td>
+									<td width="30%">
+										<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductById&pid=${thisOrderItem.product.pid}"> ${thisOrderItem.product.pname}</a>
+									</td>
+									<td width="20%">
+										￥${thisOrderItem.product.shop_price}
+									</td>
+									<td width="10%">
+											${thisOrderItem.count}
+									</td>
+									<td width="15%">
+										<span class="subtotal">￥${thisOrderItem.subtotal}</span>
+									</td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>
 
 				<div style="text-align:right;margin-right:120px;">
-					商品金额: <strong style="color:#ff6600;">￥596.00元</strong>
+					商品金额: <strong style="color:#ff6600;">￥${order.total}元</strong>
 				</div>
 
 			</div>

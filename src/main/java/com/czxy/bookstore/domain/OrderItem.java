@@ -13,6 +13,7 @@ public class OrderItem {
 
     @Id
     @Column(name = "itemid")
+    @GeneratedValue(generator = "UUID")
     private String itemid;
     @Column(name="quantity")
     private Integer count;
